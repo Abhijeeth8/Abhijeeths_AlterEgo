@@ -1,0 +1,9 @@
+.venv/ 
+.devcontainer/
+demo.py
+__pycache__/
+credentials.json
+token.json
+.env
+.streamlit/
+resume_vectorstore/
