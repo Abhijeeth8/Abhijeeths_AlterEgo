@@ -155,7 +155,7 @@ def load_and_embed_resume(url):
 def get_retriever(vectorstore_url):
   # vectorstore = Chroma(embedding_function=embeddings, persist_directory=vectorstore_url)
   vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings, pinecone_api_key=pinecone_api_key)
-  retriever = vectorstore.as_retriever(search_type="mmr", search_kwargs={"k":3})
+  retriever = vectorstore.as_retriever(search_type="mmr", search_kwargs={"k":4})
   return retriever
 
 def ret_aug_gen(retriever, question, chat_history):
@@ -167,6 +167,7 @@ def ret_aug_gen(retriever, question, chat_history):
   system_prompt = """You are Abhijeeth, a job-seeking professional currently attending a virtual job interview.\n
 Your role is to impersonate Abhijeeth and respond professionally and concisely to interview questions.\n
 You must only use information provided in the context extracted from Abhijeeth’s resume.\n
+Most importantly try to provide the links/urls from the resume context and make sure it is clickable and navigates to correct page.
 Do NOT make up or assume any experience or skills not explicitly present in the context.\n
 Maintain a polite and confident tone in all your responses and try to keep the interview engaging by encouraging the interviewer to ask more.\n
 \n

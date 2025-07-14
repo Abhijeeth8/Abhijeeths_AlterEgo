@@ -71,7 +71,14 @@ prompt_map = {
     "Skills": "What are your key technical skills?"
 }
 
-prompt = st.chat_input("Ask something about me...")
+
+prompt = st.chat_input("Ask something about me you want to know about...")
+st.markdown("""
+<small style="color:gray;">
+💡 You can ask things like:<br>
+• educational background or experience or any technical skills or certifications<br>
+</small>
+""", unsafe_allow_html=True)
 
 # Display chat history
 for msg in st.session_state.chat_history:
